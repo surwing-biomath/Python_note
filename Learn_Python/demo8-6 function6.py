@@ -74,7 +74,7 @@ print(round(3.9415926))                     # 4
 print(round(3.1415926,2))                   # 3.14
 print(round(314.15926,-1))                  # 310.0      # -1位，对个位进行四舍五入
 print(round(394.15926,-2))                  # 400.0      # -2位，对十位进行四舍五入
-
+print('-'*50)
 
 # 迭代器操作函数，操作可迭代对象，例如字符串、列表、元组，都可以使用for循环进行遍历操作
 # sort(iter):                               # 对可迭代对象进行排序
@@ -86,4 +86,109 @@ print(round(394.15926,-2))                  # 400.0      # -2位，对十位进�
 # next(iter):                               # 获取迭代器的下一个元素
 # filter(function,iter):                    # 通过指定条件过滤序列并返回一个迭代器对象
 # map(function,iter):                       # 通过函数function对可迭代对象iter的操作返回一个迭代器对象
+
+lst=[54,56,77,4,567,34]
+# (1)排序操作
+asc_lst=sorted(lst)
+desc_lst=sorted(lst,reverse=True)
+print('原列表：',lst)                        # [54, 56, 77, 4, 567, 34]
+print('升序：',asc_lst)                      # [4, 34, 54, 56, 77, 567]
+print('降序：',desc_lst)                     # [567, 77, 56, 54, 34, 4]
+print('-'*50)
+
+# (2)reverse反向
+new_lst=reversed(lst)
+print(type(new_lst))                        # <class 'list_reverseiterator'> # 迭代器对象
+print(list(new_lst))                        # [34, 567, 4, 77, 56, 54]
+print('-'*50)
+
+# (3)zip
+x=['a','b','c','d']
+y=[10,20,30,40,50]
+zipobj=zip(x,y)
+print(type(zipobj))                         # <class 'zip'>
+print(list(zipobj))                         # [('a', 10), ('b', 20), ('c', 30), ('d', 40)]
+print('-'*50) 
+
+# (4)enumeerate
+enum=enumerate(y,start=1)
+print(type(enum))                           # <class 'enumerate'>
+print(tuple(enum))                          # ((1, 10), (2, 20), (3, 30), (4, 40), (5, 50))
+print(list(enum))                           # []
+print('-'*50)
+
+# (5)all any
+lst2=[10,20,'',30]
+print(all(lst))                             # True
+print(all(lst2))                            # False
+
+print(any(lst))                             # True
+print(any(lst2))                            # True
+
+# next
+x=['a','b','c','d']
+y=[10,20,30,40,50]
+zipobj=zip(x,y)
+print(type(zipobj))
+print(next(zipobj))                         # ('a', 10)
+print(next(zipobj))                         # ('b', 20)
+print(next(zipobj))                         # ('c', 30)
+print('-'*50)
+
+obj=filter(lambda num:num%2==1,range(10))
+print(type(obj))                            # <class 'filter'>
+print(list(obj))                            # [1, 3, 5, 7, 9]
+
+new_lst2=['hello','world','python']
+obj2=map(lambda x:x.upper(),new_lst2)
+print(type(obj2))                           # <class 'map'>
+print(list(obj2))                           # ['HELLO', 'WORLD', 'PYTHON']
+print('-'*50)
+
+
+# 其他内置函数：
+# format(value,format_spec):                # 将value以format_spec格式进行显示
+# len(s):                                   # 获取s的长度或s元素的个数
+# id(obj):                                  # 获取对象的内存地址
+# type(x):                                  # 获取x的数据类型
+# eval(s):                                  # 执行s这个字符串所表示的Python代码
+
+# format()
+print(format(3.14,'20'))                    #                 3.14          # 数值型默认右对齐
+print(format('hello','20'))                 # hello                         # 字符串默认左对齐
+print(format('hello','*<20'))               # hello***************          # <左对齐，*表示填充符，20表示的是显示的宽度
+print(format('hello','*>20'))               # ***************hello
+print(format('hello','*^20'))               # *******hello********
+print('-'*50)
+
+print(format(3.1415926,'.2f'))              # 3.14
+print(format(20,'b'))                       # 10100
+print(format(20,'o'))                       # 24
+print(format(20,'x'))                       # 14
+print(format(20,'X'))                       # 14
+print('-'*50)
+
+print(len('helloworld'))                    # 10
+print(len([10,20,30,40,50]))                # 5
+print('-'*50)
+
+print(id(10))                               # 140732596290760
+print(id('helloworld'))                     # 3021896764144
+print(type('hello'),type(10))               # <class 'str'> <class 'int'>
+print('-'*50)
+
+print(eval('10+30'))                        # 40
+print(eval('7/6'))                          # 1.1666666666666667
+print(eval('10>30'))                        # False
+
+def fun(n):
+    lst=[2,8]
+    for i in range(1,n):
+        lst.append(lst[-1]+lst[-2])
+        return lst[-2]%lst[-1]              # return执行一次就结束函数
+print(fun(7))                               # 8            
+
+def fun1():
+    print('helloworld')
+print(type(fun1),type(fun1()))              # <class 'function'> <class 'NoneType'>
 

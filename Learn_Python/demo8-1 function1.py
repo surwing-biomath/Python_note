@@ -5,6 +5,8 @@
 #     函数体
 #     [return返回值列表]  # return非必须，函数可以没有返回值
 # 3，函数调用：函数名（参数列表）
+# 函数的调用：1，不带返回值的函数直接调用
+# 函数的调用：2，带返回值的函数调用之后要将结果保存到变量中
 
 def get_sum(num):
     s=0
@@ -34,7 +36,7 @@ def happy_birthday(name,age):
 
 # happy_birthday(18,'louis')     # TypeError: can only concatenate str (not "int") to str
 
-happy_birthday('louis',18)
+happy_birthday('louis',18)       # 使用位置参数传参时，位置参数的顺序和个数要与函数定义处形式参数的顺序和个数一致
 
 
 # 关键字参数的使用
