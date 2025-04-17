@@ -14,6 +14,6 @@ def read_fun():
         print(content)
 
 def copy_fun(src_file, target_file):
-    with open(src_file, 'r', encoding='') as src:
+    with open(src_file, 'r', encoding='utf-8') as src:
         with open(target_file, 'wb') as target:
             target.write(src.read())
