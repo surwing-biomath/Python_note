@@ -48,7 +48,7 @@ random.shuffle(lst)
 print(lst)                                  # [3, 4, 5, 6, 8, 10, 7, 1, 2, 9]
 print('-'*50)
 
-# time模块是Python中提供的用于处理时间的标准库，可以用来进行时间处理、时间格式化和即时等
+# time模块是Python中提供的用于处理时间的标准库，可以用来进行时间处理、时间格式化和计时等
 # 函数名称及功能描述
 # time():                                   获取当前时间戳
 # localtime(sec):                           获取指定时间戳对应的本地时间的struct_time对象
@@ -95,7 +95,8 @@ print(time.strftime('%B',time.localtime()))         # January
 print(time.strftime('%A',time.localtime()))         # Wednesday
 
 # 字符串转成struct_time
-print(time.strptime('2008-08-08','%Y-%m-%d'))
+print(time.strptime('2008-08-08','%Y-%m-%d'))       # time.struct_time(tm_year=2008, tm_mon=8, tm_mday=8, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=4, tm_yday=221, tm_isdst=-1)
 
 time.sleep(20)
 print('helloworld')
+
