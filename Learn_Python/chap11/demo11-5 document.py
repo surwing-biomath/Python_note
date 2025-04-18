@@ -14,6 +14,11 @@ def read_fun():
         print(content)
 
 def copy_fun(src_file, target_file):
-    with open(src_file, 'r', encoding='utf-8') as src:
-        with open(target_file, 'wb') as target:
-            target.write(src.read())
+    with open(src_file, 'r', encoding='utf-8') as file:
+        with open(target_file, 'w', encoding='utf-8') as file2:
+            file2.write(file.read())            # 将读取的内容直接写进文件
+
+if __name__ == '__main__':
+    write_fun()                           # 写入文件
+    read_fun()                            # 读取文件
+    copy_fun('aa.txt', 'dd.txt')          # 复制文件内容
